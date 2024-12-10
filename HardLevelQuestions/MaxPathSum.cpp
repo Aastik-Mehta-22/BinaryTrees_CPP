@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
-using namespace std;
-
+using namespace std
 struct TreeNode {
     int val;
     TreeNode *left;
