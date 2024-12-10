@@ -31,7 +31,7 @@ public:
     int diameterOfBinaryTree(TreeNode* root) {
         
         
-        height(root);
+        height(root); // we can also pass the refrence of  diameter in function by decraling it in the main function
 
         return diameter;
 
