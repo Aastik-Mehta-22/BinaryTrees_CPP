@@ -72,3 +72,53 @@ public:
 
     }
 };
+
+
+
+// DFS Approach
+
+class Solution {
+public:
+    void solve(TreeNode* root,map<int,vector<pair<int,int>>>& mpp,int row,int col){
+
+        if(root == NULL){
+            return ;
+        }
+
+        mpp[col].push_back({row,root->val});
+
+        solve(root->left,mpp,row+1,col-1);
+        solve(root->right,mpp,row+1,col+1);
+    }
+    vector<vector<int>> verticalTraversal(TreeNode* root) {
+        
+
+        vector<vector<int>> ans;
+
+        if(root == NULL) return ans;
+
+        map<int,vector<pair<int,int>>> mpp; // column , row ,value;
+
+        solve(root,mpp,0,0); // root,mpp,row,column
+
+
+        for(auto& it : mpp){
+
+            sort(it.second.begin(),it.second.end());
+
+            vector<int> temp;
+
+            for(auto ele : it.second){
+
+                temp.push_back(ele.second);
+            }
+
+            ans.push_back(temp);
+        }
+
+        return ans;
+
+
+
+    }
+};
